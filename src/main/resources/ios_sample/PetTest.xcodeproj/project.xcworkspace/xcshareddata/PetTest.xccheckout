@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7B8FFE3D-D968-464F-B29F-E3D637429078</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PetTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EBB133C8EA9388A632B870FF0616790307780DA1</key>
+		<string>https://github.com/awslabs/api-gateway-secure-pet-store.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>src/main/resources/ios_sample/PetTest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EBB133C8EA9388A632B870FF0616790307780DA1</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/awslabs/api-gateway-secure-pet-store.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EBB133C8EA9388A632B870FF0616790307780DA1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EBB133C8EA9388A632B870FF0616790307780DA1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>api-gateway-secure-pet-store</string>
+		</dict>
+	</array>
+</dict>
+</plist>

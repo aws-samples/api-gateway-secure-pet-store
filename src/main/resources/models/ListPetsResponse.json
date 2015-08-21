@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "count": {
+      "id": "http://jsonschema.net/count",
+      "type": "integer"
+    },
+    "pageLimit": {
+      "id": "http://jsonschema.net/pageLimit",
+      "type": "integer"
+    },
+    "pets": {
+      "id": "http://jsonschema.net/pets",
+      "type": "array",
+      "items": {
+        "id": "http://jsonschema.net/pets/0",
+        "type": "object",
+        "properties": {
+          "petId": {
+            "id": "http://jsonschema.net/pets/0/petId",
+            "type": "string"
+          },
+          "petType": {
+            "id": "http://jsonschema.net/pets/0/petType",
+            "type": "string"
+          },
+          "petName": {
+            "id": "http://jsonschema.net/pets/0/petName",
+            "type": "string"
+          },
+          "petAge": {
+            "id": "http://jsonschema.net/pets/0/petAge",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "count",
+    "pageLimit",
+    "pets"
+  ]
+}

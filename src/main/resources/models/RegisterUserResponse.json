@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "username": {
+      "id": "http://jsonschema.net/username",
+      "type": "string"
+    },
+    "identityId": {
+      "id": "http://jsonschema.net/identityId",
+      "type": "string"
+    },
+    "token": {
+      "id": "http://jsonschema.net/token",
+      "type": "string"
+    },
+    "credentials": {
+      "id": "http://jsonschema.net/credentials",
+      "type": "object",
+      "properties": {
+        "accessKey": {
+          "id": "http://jsonschema.net/credentials/accessKeyId",
+          "type": "string"
+        },
+        "secretKey": {
+          "id": "http://jsonschema.net/credentials/secretKey",
+          "type": "string"
+        },
+        "sessionToken": {
+          "id": "http://jsonschema.net/credentials/sessionToken",
+          "type": "string"
+        },
+        "expiration": {
+          "id": "http://jsonschema.net/credentials/expiration",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "required": [
+    "username",
+    "identityId",
+    "token",
+    "credentials"
+  ]
+}

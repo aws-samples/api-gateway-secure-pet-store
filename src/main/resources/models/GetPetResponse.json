@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "petId": {
+      "id": "http://jsonschema.net/petId",
+      "type": "string"
+    },
+    "petType": {
+      "id": "http://jsonschema.net/petType",
+      "type": "string"
+    },
+    "petName": {
+      "id": "http://jsonschema.net/petName",
+      "type": "string"
+    },
+    "petAge": {
+      "id": "http://jsonschema.net/petAge",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "petId",
+    "petType",
+    "petName",
+    "petAge"
+  ]
+}

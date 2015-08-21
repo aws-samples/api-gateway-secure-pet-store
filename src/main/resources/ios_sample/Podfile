@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+pod 'AWSAPIGateway'
+pod 'UICKeyChainStore'
+pod 'MBProgressHUD'
+pod 'TSMessages'

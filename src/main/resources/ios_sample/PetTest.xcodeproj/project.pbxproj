@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23152C471B72CEE800591D8A /* UIViewController+PETViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23152C461B72CEE800591D8A /* UIViewController+PETViewController.m */; };
+		23DD9A111B597D9000234D85 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A101B597D9000234D85 /* main.m */; };
+		23DD9A141B597D9000234D85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A131B597D9000234D85 /* AppDelegate.m */; };
+		23DD9A171B597D9000234D85 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A161B597D9000234D85 /* MasterViewController.m */; };
+		23DD9A1A1B597D9000234D85 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A191B597D9000234D85 /* DetailViewController.m */; };
+		23DD9A1D1B597D9000234D85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DD9A1B1B597D9000234D85 /* Main.storyboard */; };
+		23DD9A1F1B597D9000234D85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DD9A1E1B597D9000234D85 /* Images.xcassets */; };
+		23DD9A221B597D9000234D85 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DD9A201B597D9000234D85 /* LaunchScreen.xib */; };
+		23DD9A3B1B5980E300234D85 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A3A1B5980E300234D85 /* LoginViewController.m */; };
+		23DD9A6A1B59873A00234D85 /* PETCreatePetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A591B59873A00234D85 /* PETCreatePetRequest.m */; };
+		23DD9A6B1B59873A00234D85 /* PETCreatePetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A5B1B59873A00234D85 /* PETCreatePetResponse.m */; };
+		23DD9A6C1B59873A00234D85 /* PETError.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A5D1B59873A00234D85 /* PETError.m */; };
+		23DD9A6D1B59873A00234D85 /* PETLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A5F1B59873A00234D85 /* PETLambdaMicroserviceClient.m */; };
+		23DD9A6E1B59873A00234D85 /* PETLoginUserResponse_credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A611B59873A00234D85 /* PETLoginUserResponse_credentials.m */; };
+		23DD9A6F1B59873A00234D85 /* PETLoginUserResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A631B59873A00234D85 /* PETLoginUserResponse.m */; };
+		23DD9A701B59873A00234D85 /* PETRegisterUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A651B59873A00234D85 /* PETRegisterUserRequest.m */; };
+		23DD9A711B59873A00234D85 /* PETRegisterUserResponse_credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A671B59873A00234D85 /* PETRegisterUserResponse_credentials.m */; };
+		23DD9A721B59873A00234D85 /* PETRegisterUserResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A691B59873A00234D85 /* PETRegisterUserResponse.m */; };
+		23DD9A751B59922600234D85 /* CreatePetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A741B59922600234D85 /* CreatePetViewController.m */; };
+		23DD9A781B59978700234D85 /* PetStoreSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A771B59978700234D85 /* PetStoreSplitViewController.m */; };
+		23DD9A7B1B59A90F00234D85 /* APIGSessionCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A7A1B59A90F00234D85 /* APIGSessionCredentialsProvider.m */; };
+		23DD9A811B5EA9DA00234D85 /* PETListPetsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A7F1B5EA9DA00234D85 /* PETListPetsResponse.m */; };
+		23DD9A841B5EAEE600234D85 /* PETListPetsResponse_pets_item.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A831B5EAEE600234D85 /* PETListPetsResponse_pets_item.m */; };
+		23DD9A871B5F11B100234D85 /* PETGetPetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A861B5F11B100234D85 /* PETGetPetResponse.m */; };
+		23DD9A8B1B5F15DC00234D85 /* PETCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DD9A8A1B5F15DC00234D85 /* PETCredentials.m */; };
+		7B54938EA3AF66D5FD8C9B5E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DCB9ECDE9AA4BA5E8D387A /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01C3AECE0B65A73FA22DDC84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		23152C451B72CEE800591D8A /* UIViewController+PETViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PETViewController.h"; sourceTree = "<group>"; };
+		23152C461B72CEE800591D8A /* UIViewController+PETViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PETViewController.m"; sourceTree = "<group>"; };
+		23DD9A0B1B597D9000234D85 /* PetTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23DD9A0F1B597D9000234D85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23DD9A101B597D9000234D85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23DD9A121B597D9000234D85 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		23DD9A131B597D9000234D85 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		23DD9A151B597D9000234D85 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		23DD9A161B597D9000234D85 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		23DD9A181B597D9000234D85 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		23DD9A191B597D9000234D85 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		23DD9A1C1B597D9000234D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23DD9A1E1B597D9000234D85 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23DD9A211B597D9000234D85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		23DD9A391B5980E300234D85 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		23DD9A3A1B5980E300234D85 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		23DD9A581B59873A00234D85 /* PETCreatePetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETCreatePetRequest.h; sourceTree = "<group>"; };
+		23DD9A591B59873A00234D85 /* PETCreatePetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETCreatePetRequest.m; sourceTree = "<group>"; };
+		23DD9A5A1B59873A00234D85 /* PETCreatePetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETCreatePetResponse.h; sourceTree = "<group>"; };
+		23DD9A5B1B59873A00234D85 /* PETCreatePetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETCreatePetResponse.m; sourceTree = "<group>"; };
+		23DD9A5C1B59873A00234D85 /* PETError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETError.h; sourceTree = "<group>"; };
+		23DD9A5D1B59873A00234D85 /* PETError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETError.m; sourceTree = "<group>"; };
+		23DD9A5E1B59873A00234D85 /* PETLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETLambdaMicroserviceClient.h; sourceTree = "<group>"; };
+		23DD9A5F1B59873A00234D85 /* PETLambdaMicroserviceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETLambdaMicroserviceClient.m; sourceTree = "<group>"; };
+		23DD9A601B59873A00234D85 /* PETLoginUserResponse_credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETLoginUserResponse_credentials.h; sourceTree = "<group>"; };
+		23DD9A611B59873A00234D85 /* PETLoginUserResponse_credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETLoginUserResponse_credentials.m; sourceTree = "<group>"; };
+		23DD9A621B59873A00234D85 /* PETLoginUserResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETLoginUserResponse.h; sourceTree = "<group>"; };
+		23DD9A631B59873A00234D85 /* PETLoginUserResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETLoginUserResponse.m; sourceTree = "<group>"; };
+		23DD9A641B59873A00234D85 /* PETRegisterUserRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETRegisterUserRequest.h; sourceTree = "<group>"; };
+		23DD9A651B59873A00234D85 /* PETRegisterUserRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETRegisterUserRequest.m; sourceTree = "<group>"; };
+		23DD9A661B59873A00234D85 /* PETRegisterUserResponse_credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETRegisterUserResponse_credentials.h; sourceTree = "<group>"; };
+		23DD9A671B59873A00234D85 /* PETRegisterUserResponse_credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETRegisterUserResponse_credentials.m; sourceTree = "<group>"; };
+		23DD9A681B59873A00234D85 /* PETRegisterUserResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETRegisterUserResponse.h; sourceTree = "<group>"; };
+		23DD9A691B59873A00234D85 /* PETRegisterUserResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETRegisterUserResponse.m; sourceTree = "<group>"; };
+		23DD9A731B59922600234D85 /* CreatePetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePetViewController.h; sourceTree = "<group>"; };
+		23DD9A741B59922600234D85 /* CreatePetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePetViewController.m; sourceTree = "<group>"; };
+		23DD9A761B59978700234D85 /* PetStoreSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetStoreSplitViewController.h; sourceTree = "<group>"; };
+		23DD9A771B59978700234D85 /* PetStoreSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetStoreSplitViewController.m; sourceTree = "<group>"; };
+		23DD9A791B59A90F00234D85 /* APIGSessionCredentialsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIGSessionCredentialsProvider.h; sourceTree = "<group>"; };
+		23DD9A7A1B59A90F00234D85 /* APIGSessionCredentialsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIGSessionCredentialsProvider.m; sourceTree = "<group>"; };
+		23DD9A7E1B5EA9DA00234D85 /* PETListPetsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETListPetsResponse.h; sourceTree = "<group>"; };
+		23DD9A7F1B5EA9DA00234D85 /* PETListPetsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETListPetsResponse.m; sourceTree = "<group>"; };
+		23DD9A821B5EAEE600234D85 /* PETListPetsResponse_pets_item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETListPetsResponse_pets_item.h; sourceTree = "<group>"; };
+		23DD9A831B5EAEE600234D85 /* PETListPetsResponse_pets_item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETListPetsResponse_pets_item.m; sourceTree = "<group>"; };
+		23DD9A851B5F11B100234D85 /* PETGetPetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETGetPetResponse.h; sourceTree = "<group>"; };
+		23DD9A861B5F11B100234D85 /* PETGetPetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETGetPetResponse.m; sourceTree = "<group>"; };
+		23DD9A891B5F15DC00234D85 /* PETCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PETCredentials.h; sourceTree = "<group>"; };
+		23DD9A8A1B5F15DC00234D85 /* PETCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PETCredentials.m; sourceTree = "<group>"; };
+		618B6CA1EBC780EC9B6DD7E9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A3DCB9ECDE9AA4BA5E8D387A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23DD9A081B597D9000234D85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B54938EA3AF66D5FD8C9B5E /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2211E3BDFBB24FFA83E98EFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3DCB9ECDE9AA4BA5E8D387A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23DD9A021B597D9000234D85 = {
+			isa = PBXGroup;
+			children = (
+				23DD9A0D1B597D9000234D85 /* PetTest */,
+				23DD9A0C1B597D9000234D85 /* Products */,
+				E7CAEEFB23DD23E00D35AD0A /* Pods */,
+				2211E3BDFBB24FFA83E98EFE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		23DD9A0C1B597D9000234D85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23DD9A0B1B597D9000234D85 /* PetTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23DD9A0D1B597D9000234D85 /* PetTest */ = {
+			isa = PBXGroup;
+			children = (
+				23DD9A881B5F15BA00234D85 /* Models */,
+				23DD9A3C1B59870400234D85 /* ClientSDK */,
+				23DD9A121B597D9000234D85 /* AppDelegate.h */,
+				23DD9A131B597D9000234D85 /* AppDelegate.m */,
+				23DD9A151B597D9000234D85 /* MasterViewController.h */,
+				23DD9A161B597D9000234D85 /* MasterViewController.m */,
+				23DD9A181B597D9000234D85 /* DetailViewController.h */,
+				23DD9A191B597D9000234D85 /* DetailViewController.m */,
+				23DD9A1B1B597D9000234D85 /* Main.storyboard */,
+				23DD9A1E1B597D9000234D85 /* Images.xcassets */,
+				23DD9A201B597D9000234D85 /* LaunchScreen.xib */,
+				23DD9A0E1B597D9000234D85 /* Supporting Files */,
+				23DD9A391B5980E300234D85 /* LoginViewController.h */,
+				23DD9A3A1B5980E300234D85 /* LoginViewController.m */,
+				23DD9A731B59922600234D85 /* CreatePetViewController.h */,
+				23DD9A741B59922600234D85 /* CreatePetViewController.m */,
+				23DD9A761B59978700234D85 /* PetStoreSplitViewController.h */,
+				23DD9A771B59978700234D85 /* PetStoreSplitViewController.m */,
+				23DD9A791B59A90F00234D85 /* APIGSessionCredentialsProvider.h */,
+				23DD9A7A1B59A90F00234D85 /* APIGSessionCredentialsProvider.m */,
+				23152C451B72CEE800591D8A /* UIViewController+PETViewController.h */,
+				23152C461B72CEE800591D8A /* UIViewController+PETViewController.m */,
+			);
+			path = PetTest;
+			sourceTree = "<group>";
+		};
+		23DD9A0E1B597D9000234D85 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23DD9A0F1B597D9000234D85 /* Info.plist */,
+				23DD9A101B597D9000234D85 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23DD9A3C1B59870400234D85 /* ClientSDK */ = {
+			isa = PBXGroup;
+			children = (
+				23DD9A851B5F11B100234D85 /* PETGetPetResponse.h */,
+				23DD9A861B5F11B100234D85 /* PETGetPetResponse.m */,
+				23DD9A821B5EAEE600234D85 /* PETListPetsResponse_pets_item.h */,
+				23DD9A831B5EAEE600234D85 /* PETListPetsResponse_pets_item.m */,
+				23DD9A7E1B5EA9DA00234D85 /* PETListPetsResponse.h */,
+				23DD9A7F1B5EA9DA00234D85 /* PETListPetsResponse.m */,
+				23DD9A581B59873A00234D85 /* PETCreatePetRequest.h */,
+				23DD9A591B59873A00234D85 /* PETCreatePetRequest.m */,
+				23DD9A5A1B59873A00234D85 /* PETCreatePetResponse.h */,
+				23DD9A5B1B59873A00234D85 /* PETCreatePetResponse.m */,
+				23DD9A5C1B59873A00234D85 /* PETError.h */,
+				23DD9A5D1B59873A00234D85 /* PETError.m */,
+				23DD9A5E1B59873A00234D85 /* PETLambdaMicroserviceClient.h */,
+				23DD9A5F1B59873A00234D85 /* PETLambdaMicroserviceClient.m */,
+				23DD9A601B59873A00234D85 /* PETLoginUserResponse_credentials.h */,
+				23DD9A611B59873A00234D85 /* PETLoginUserResponse_credentials.m */,
+				23DD9A621B59873A00234D85 /* PETLoginUserResponse.h */,
+				23DD9A631B59873A00234D85 /* PETLoginUserResponse.m */,
+				23DD9A641B59873A00234D85 /* PETRegisterUserRequest.h */,
+				23DD9A651B59873A00234D85 /* PETRegisterUserRequest.m */,
+				23DD9A661B59873A00234D85 /* PETRegisterUserResponse_credentials.h */,
+				23DD9A671B59873A00234D85 /* PETRegisterUserResponse_credentials.m */,
+				23DD9A681B59873A00234D85 /* PETRegisterUserResponse.h */,
+				23DD9A691B59873A00234D85 /* PETRegisterUserResponse.m */,
+			);
+			name = ClientSDK;
+			sourceTree = "<group>";
+		};
+		23DD9A881B5F15BA00234D85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23DD9A891B5F15DC00234D85 /* PETCredentials.h */,
+				23DD9A8A1B5F15DC00234D85 /* PETCredentials.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E7CAEEFB23DD23E00D35AD0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01C3AECE0B65A73FA22DDC84 /* Pods.debug.xcconfig */,
+				618B6CA1EBC780EC9B6DD7E9 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23DD9A0A1B597D9000234D85 /* PetTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23DD9A311B597D9100234D85 /* Build configuration list for PBXNativeTarget "PetTest" */;
+			buildPhases = (
+				11B17AD2D307FCFD54D420C5 /* Check Pods Manifest.lock */,
+				23DD9A071B597D9000234D85 /* Sources */,
+				23DD9A081B597D9000234D85 /* Frameworks */,
+				23DD9A091B597D9000234D85 /* Resources */,
+				F4DEB13A588F025A54DAE645 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetTest;
+			productName = PetTest;
+			productReference = 23DD9A0B1B597D9000234D85 /* PetTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23DD9A031B597D9000234D85 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Sapessi;
+				TargetAttributes = {
+					23DD9A0A1B597D9000234D85 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 23DD9A061B597D9000234D85 /* Build configuration list for PBXProject "PetTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23DD9A021B597D9000234D85;
+			productRefGroup = 23DD9A0C1B597D9000234D85 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23DD9A0A1B597D9000234D85 /* PetTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23DD9A091B597D9000234D85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23DD9A1D1B597D9000234D85 /* Main.storyboard in Resources */,
+				23DD9A221B597D9000234D85 /* LaunchScreen.xib in Resources */,
+				23DD9A1F1B597D9000234D85 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11B17AD2D307FCFD54D420C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4DEB13A588F025A54DAE645 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23DD9A071B597D9000234D85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23DD9A6E1B59873A00234D85 /* PETLoginUserResponse_credentials.m in Sources */,
+				23DD9A6C1B59873A00234D85 /* PETError.m in Sources */,
+				23DD9A141B597D9000234D85 /* AppDelegate.m in Sources */,
+				23DD9A811B5EA9DA00234D85 /* PETListPetsResponse.m in Sources */,
+				23DD9A6B1B59873A00234D85 /* PETCreatePetResponse.m in Sources */,
+				23DD9A721B59873A00234D85 /* PETRegisterUserResponse.m in Sources */,
+				23152C471B72CEE800591D8A /* UIViewController+PETViewController.m in Sources */,
+				23DD9A171B597D9000234D85 /* MasterViewController.m in Sources */,
+				23DD9A6D1B59873A00234D85 /* PETLambdaMicroserviceClient.m in Sources */,
+				23DD9A111B597D9000234D85 /* main.m in Sources */,
+				23DD9A841B5EAEE600234D85 /* PETListPetsResponse_pets_item.m in Sources */,
+				23DD9A6A1B59873A00234D85 /* PETCreatePetRequest.m in Sources */,
+				23DD9A781B59978700234D85 /* PetStoreSplitViewController.m in Sources */,
+				23DD9A7B1B59A90F00234D85 /* APIGSessionCredentialsProvider.m in Sources */,
+				23DD9A8B1B5F15DC00234D85 /* PETCredentials.m in Sources */,
+				23DD9A1A1B597D9000234D85 /* DetailViewController.m in Sources */,
+				23DD9A701B59873A00234D85 /* PETRegisterUserRequest.m in Sources */,
+				23DD9A871B5F11B100234D85 /* PETGetPetResponse.m in Sources */,
+				23DD9A711B59873A00234D85 /* PETRegisterUserResponse_credentials.m in Sources */,
+				23DD9A3B1B5980E300234D85 /* LoginViewController.m in Sources */,
+				23DD9A751B59922600234D85 /* CreatePetViewController.m in Sources */,
+				23DD9A6F1B59873A00234D85 /* PETLoginUserResponse.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		23DD9A1B1B597D9000234D85 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23DD9A1C1B597D9000234D85 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23DD9A201B597D9000234D85 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23DD9A211B597D9000234D85 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23DD9A2F1B597D9100234D85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23DD9A301B597D9100234D85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23DD9A321B597D9100234D85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01C3AECE0B65A73FA22DDC84 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PetTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		23DD9A331B597D9100234D85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 618B6CA1EBC780EC9B6DD7E9 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PetTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23DD9A061B597D9000234D85 /* Build configuration list for PBXProject "PetTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23DD9A2F1B597D9100234D85 /* Debug */,
+				23DD9A301B597D9100234D85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23DD9A311B597D9100234D85 /* Build configuration list for PBXNativeTarget "PetTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23DD9A321B597D9100234D85 /* Debug */,
+				23DD9A331B597D9100234D85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23DD9A031B597D9000234D85 /* Project object */;
+}

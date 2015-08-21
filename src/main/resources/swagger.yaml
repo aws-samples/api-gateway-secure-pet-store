@@ -1,0 +1,358 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: API Gateway Secure Pet Store
+  description: Pet store sample that uses Cognito Developer Authenticated Identities to generate credentials through a Java Lambda Function
+  version: "1.0.0"
+# the domain of the service
+host: execute-api.us-east-1.amazonaws.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /
+produces:
+  - application/json
+paths:
+  /users:
+    post:
+      summary: Registers a new user
+      description: |
+        Creates a new user in the DynamoDB backend database and returns a set
+        of temporary credentials to sign future requests.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: NewUser
+          in: body
+          description: New user details.
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - Auth
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:YOUR_FUNCTION_NAME/invocations
+        credentials: arn:aws:iam::XXXXXXXXXXXX:role/YOUR_LAMBDA_INVOCATION_ROLE
+        httpMethod: POST
+        requestTemplates:
+          application/json: |
+            {
+              "action" : "com.amazonaws.apigatewaydemo.action.RegisterDemoAction",
+              "body" : $input.json('$')
+            }
+        responses:
+          "default":
+            statusCode: "200"
+          "BAD.*":
+            statusCode: "400"
+          "INT.*":
+            statusCode: "500"
+      responses:
+        200:
+          description: The username of the new user and set of temporary credentials
+          schema:
+            $ref: '#/definitions/RegisterUserResponse'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal error
+          schema:
+            $ref: '#/definitions/Error'
+  /login:
+    post:
+      summary: Login user
+      description: |
+        Verifies the given credentials against the user database and returns a set
+        of new temporary credentials
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: LoginUser
+          in: body
+          description: New user details.
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - Auth
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:YOUR_FUNCTION_NAME/invocations
+        credentials: arn:aws:iam::XXXXXXXXXXXX:role/YOUR_LAMBDA_INVOCATION_ROLE
+        httpMethod: POST
+        requestTemplates:
+          application/json: |
+            {
+              "action" : "com.amazonaws.apigatewaydemo.action.LoginDemoAction",
+              "body" : $input.json('$')
+            }
+        responses:
+          "default":
+            statusCode: "200"
+          "BAD.*":
+            statusCode: "400"
+          "INT.*":
+            statusCode: "500"
+      responses:
+        200:
+          description: A new set of temporary credentials
+          schema:
+            $ref: '#/definitions/LoginUserResponse'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal error
+          schema:
+            $ref: '#/definitions/Error'
+  /pets:
+    post:
+      summary: Creates a new pet
+      description: |
+        Creates a new pet object in the datastore
+      x-amazon-apigateway-auth:
+        type: aws_iam
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: NewPet
+          in: body
+          description: New pet details.
+          schema:
+            $ref: '#/definitions/NewPet'
+      tags:
+        - Pet Store
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:YOUR_FUNCTION_NAME/invocations
+        credentials: arn:aws:iam::*:user/*
+        httpMethod: POST
+        requestTemplates:
+          application/json: |
+            {
+              "action" : "com.amazonaws.apigatewaydemo.action.CreatePetDemoAction",
+              "body" : $input.json('$')
+            }
+        responses:
+          "default":
+            statusCode: "200"
+          "BAD.*":
+            statusCode: "400"
+          "INT.*":
+            statusCode: "500"
+      responses:
+        200:
+          description: The unique identifier of the new pet
+          schema:
+            $ref: '#/definitions/NewPetResponse'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal error
+          schema:
+            $ref: '#/definitions/Error'
+    get:
+      summary: List pets
+      description: Retrieve a list of pets in the store
+      x-amazon-apigateway-auth:
+        type: aws_iam
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - Pet Store
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:YOUR_FUNCTION_NAME/invocations
+        credentials: arn:aws:iam::*:user/*
+        httpMethod: POST
+        requestTemplates:
+          application/json: |
+            {
+              "action" : "com.amazonaws.apigatewaydemo.action.ListPetsDemoAction",
+              "body" : $input.json('$')
+            }
+        responses:
+          "default":
+            statusCode: "200"
+          "BAD.*":
+            statusCode: "400"
+          "INT.*":
+            statusCode: "500"
+      responses:
+        200:
+          description: A list of pets
+          schema:
+            $ref: '#/definitions/Pets'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal error
+          schema:
+            $ref: '#/definitions/Error'
+  /pets/{petId}:
+    get:
+      summary: Get pet by id
+      description: Returns a pet definition based on the given id
+      x-amazon-apigateway-auth:
+        type: aws_iam
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - Pet Store
+      parameters:
+        - name: petId
+          in: path
+          description: The unique identifier for a pet
+          type: string
+      x-amazon-apigateway-integration:
+        type: aws
+        uri: arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:YOUR_FUNCTION_NAME/invocations
+        credentials: arn:aws:iam::*:user/*
+        httpMethod: POST
+        requestTemplates:
+          application/json: |
+            {
+              "action" : "com.amazonaws.apigatewaydemo.action.GetPetDemoAction",
+              "body" : {
+                "petId" : "$input.params('petId')"
+              }
+            }
+        responses:
+          "default":
+            statusCode: "200"
+          "BAD.*":
+            statusCode: "400"
+          "INT.*":
+            statusCode: "500"
+      responses:
+        200:
+          description: A pet
+          schema:
+            $ref: '#/definitions/Pet'
+        400:
+          description: Bad request
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Internal error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  User:
+    properties:
+      username:
+        type: string
+        description: A unique username for the user
+      password:
+        type: string
+        description: A password for the new user
+  RegisterUserResponse:
+    properties:
+      username:
+        type: string
+        description: The username of the new user
+      identityId:
+        type: string
+        description: The unique identifier for the new user
+      token:
+        type: string
+        description: An OpenID token for the new user
+      credentials:
+        properties:
+          accessKey:
+            type: string
+            description: Temporary access key to sign requests
+          secretKey:
+            type: string
+            description: Temporary secret access key to sign requests
+          sessionToken:
+            type: string
+            description: Tempoarary session token
+          expiration:
+            type: integer
+            description: |
+              Expiration date of the temporary credentials in millis since 1/1/1970
+  LoginUserResponse:
+    properties:
+      identityId:
+        type: string
+        description: The unique identifier for the new user
+      token:
+        type: string
+        description: An OpenID token for the new user
+      credentials:
+        properties:
+          accessKey:
+            type: string
+            description: Temporary access key to sign requests
+          secretKey:
+            type: string
+            description: Temporary secret access key to sign requests
+          sessionToken:
+            type: string
+            description: Tempoarary session token
+          expiration:
+            type: integer
+            description: |
+              Expiration date of the temporary credentials in millis since 1/1/1970
+  NewPet:
+    properties:
+      petType:
+        type: string
+        description: Free text pet type
+      petName:
+        type: string
+        description: Free text pet name
+      petAge:
+        type: integer
+        description: Age of the new pet
+  NewPetResponse:
+    properties:
+      petId:
+        type: string
+        description: The generated unique identifier for the new pet
+  Pet:
+    properties:
+      petId:
+        type: string
+        description: The generated unique identifier for the new pet
+      petType:
+        type: string
+        description: Free text pet type
+      petName:
+        type: string
+        description: Free text pet name
+      petAge:
+        type: integer
+        description: Age of the new pet
+  Pets:
+    type: array
+    items:
+      $ref: Pet
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
