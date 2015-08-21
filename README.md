@@ -91,8 +91,7 @@ arn:aws:apigateway:<YOUR REGION>:lambda:path/2015-03-31/functions/<YOUR LAMBDA F
 ```
 * Now that we have generated all resources for our API and we have all the ARNs, we should also modify the access policy of the Cognito Identity Pool to match the generated one.
 * In the IAM console navigate to the roles list and open the authenticated role of your Cognito Identity Pool - the role is likely to be called **Cognito_"IdentityPoolName"Auth_Role**
-* Use the same access policy we generated for the invocation role.
-
+* Copy and paste the same access policy we generated for the invocation role with the addition of the permission to invoke API Gateway: Add an **Action** called `execute-api:Invoke` and a **Resource** called `arn:aws:execute-api:*`
 * Copy the **Role ARN** from the Role Summary page, and paste it in the `credentials` field of the `/users` and `/login` methods of the Swagger file.
 * Once you have modified and saved the Swagger file to call the correct Lambda function and use your roles run the Swagger Importer tool from the command line to create the API in Amazon API Gateway. The Swagger Importer uses your local [AWS credentials set by the AWS cli](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files). From the Swagger Importer tool folder run:
 ```
