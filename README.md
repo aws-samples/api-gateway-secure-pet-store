@@ -58,7 +58,7 @@ arn:aws:apigateway:<YOUR REGION>:lambda:path/2015-03-31/functions/<YOUR LAMBDA F
 | AWS Service | Action | Amazon Resource Name |
 |-------|----------|-------------|
 | Amazon Cognito Identity | GetOpenIdTokenForDeveloperIdentity | Your Identity Pool ARN, the same we used in the Java configuration class of the app. You can get the complete ARN from the *Edit Identity Pool* page |
-| Amazon DynamoDB | PutItem, GetItem, Scan | The ARN of your *users* and *pets* tables. Add the same permissions for both tables. |
+| Amazon DynamoDB | PutItem, UpdateItem, GetItem, Scan | The ARN of your *users* and *pets* tables. Add the same permissions for both tables. |
 | AWS Lambda | InvokeFunction | The ARN of the Lambda function we created. This is available in the Lambda function page on the top right of the screen. |
 | Amazon CloudWatch Logs | All Actions | Use * as an ARN |
 
@@ -74,6 +74,7 @@ arn:aws:apigateway:<YOUR REGION>:lambda:path/2015-03-31/functions/<YOUR LAMBDA F
 				"cognito-identity:GetOpenIdTokenForDeveloperIdentity",
 				"dynamodb:GetItem",
 				"dynamodb:PutItem",
+				"dynamodb:UpdateItem",
 				"dynamodb:Scan",
 				"lambda:InvokeFunction",
 				"logs:*"
