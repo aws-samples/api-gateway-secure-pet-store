@@ -40,18 +40,22 @@ public class RequestRouter {
      *                 request body for the action class.
      * @param response An OutputStream where the response returned by the action class is written
      * @param context  The Lambda Context object
-     * @throws IOException            This is thrown when an error occurs while reading the incoming request or writing to the response
-     *                                OutputStream.
      * @throws BadRequestException    This Exception is thrown whenever parameters are missing from the request or the action
      *                                class can't be found
      * @throws InternalErrorException This Exception is thrown when an internal error occurs, for example when the database
      *                                is not accessible
      */
-    public static void lambdaHandler(InputStream request, OutputStream response, Context context) throws IOException, BadRequestException, InternalErrorException {
+    public static void lambdaHandler(InputStream request, OutputStream response, Context context) throws BadRequestException, InternalErrorException {
         LambdaLogger logger = context.getLogger();
 
         JsonParser parser = new JsonParser();
-        JsonObject inputObj = parser.parse(IOUtils.toString(request)).getAsJsonObject();
+        JsonObject inputObj;
+        try {
+            inputObj = parser.parse(IOUtils.toString(request)).getAsJsonObject();
+        } catch (IOException e) {
+            logger.log("Error while reading request\n" + e.getMessage());
+            throw new InternalErrorException(e.getMessage());
+        }
 
         if (inputObj == null || inputObj.get("action") == null || inputObj.get("action").getAsString().trim().equals("")) {
             logger.log("Invald inputObj, could not find action parameter");
@@ -86,6 +90,11 @@ public class RequestRouter {
 
         String output = action.handle(body, context);
 
-        IOUtils.write(output, response);
+        try {
+            IOUtils.write(output, response);
+        } catch (final IOException e) {
+            logger.log("Error while writing response\n" + e.getMessage());
+            throw new InternalErrorException(e.getMessage());
+        }
     }
 }
