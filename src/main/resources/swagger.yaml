@@ -47,23 +47,75 @@ paths:
         responses:
           "default":
             statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "BAD.*":
             statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "INT.*":
             statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
       responses:
         200:
           description: The username of the new user and set of temporary credentials
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/RegisterUserResponse'
         400:
           description: Bad request
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
         500:
           description: Internal error
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
+    options:
+      summary: CORS support
+      description: |
+        Enable CORS by returning correct headers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        200:
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
   /login:
     post:
       summary: Login user
@@ -96,23 +148,75 @@ paths:
         responses:
           "default":
             statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "BAD.*":
             statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "INT.*":
             statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
       responses:
         200:
           description: A new set of temporary credentials
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/LoginUserResponse'
         400:
           description: Bad request
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
         500:
           description: Internal error
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
+    options:
+      summary: CORS support
+      description: |
+        Enable CORS by returning correct headers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        200:
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
   /pets:
     post:
       summary: Creates a new pet
@@ -146,21 +250,36 @@ paths:
         responses:
           "default":
             statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "BAD.*":
             statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "INT.*":
             statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
       responses:
         200:
           description: The unique identifier of the new pet
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/NewPetResponse'
         400:
           description: Bad request
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
         500:
           description: Internal error
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
     get:
@@ -188,23 +307,75 @@ paths:
         responses:
           "default":
             statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "BAD.*":
             statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "INT.*":
             statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
       responses:
         200:
           description: A list of pets
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Pets'
         400:
           description: Bad request
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
         500:
           description: Internal error
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
+    options:
+      summary: CORS support
+      description: |
+        Enable CORS by returning correct headers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        200:
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
   /pets/{petId}:
     get:
       summary: Get pet by id
@@ -238,23 +409,75 @@ paths:
         responses:
           "default":
             statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "BAD.*":
             statusCode: "400"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
           "INT.*":
             statusCode: "500"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin : "'*'"
       responses:
         200:
           description: A pet
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Pet'
         400:
           description: Bad request
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
         500:
           description: Internal error
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
           schema:
             $ref: '#/definitions/Error'
+    options:
+      summary: CORS support
+      description: |
+        Enable CORS by returning correct headers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - CORS
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {
+              "statusCode" : 200
+            }
+        responses:
+          "default":
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers : "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods : "'*'"
+              method.response.header.Access-Control-Allow-Origin : "'*'"
+            responseTemplates:
+              application/json: |
+                {}
+      responses:
+        200:
+          description: Default response for CORS method
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
 definitions:
   User:
     properties:
