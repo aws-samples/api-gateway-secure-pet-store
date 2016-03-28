@@ -499,6 +499,7 @@ definitions:
         type: string
         description: An OpenID token for the new user
       credentials:
+        type: object
         properties:
           accessKey:
             type: string
@@ -522,6 +523,7 @@ definitions:
         type: string
         description: An OpenID token for the new user
       credentials:
+        type: object
         properties:
           accessKey:
             type: string
