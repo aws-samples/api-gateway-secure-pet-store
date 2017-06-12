@@ -28,63 +28,61 @@ The application needs to be modified to reflect the resource names created above
 * Now that the application is configured you can build it and package it for AWS Lambda using [Maven](https://maven.apache.org/). Open a terminal and navigate to the application folder, then run `mvn package`. This will create a *target* directory and inside it a file called `api-gateway-secure-pet-store-1.0-SNAPSHOT.jar`.
 * We will create an AWS Lambda function that needs access to the resources created above. Create a new role in AWS Identity and Access Management with the following policies:
 
-   Trust Policy for the AWS Lambda execution role:
-
-   ```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    Trust Policy for the AWS Lambda execution role:
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-   Policy for the AWS Lambda execution role:
-
-   ```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
+      "Version": "2012-10-17",
+      "Statement": [
         {
-            "Effect": "Allow",
-            "Action": [
-                "cognito-identity:GetOpenIdTokenForDeveloperIdentity"
-            ],
-            "Resource": [
-                "<COGNITO_IDENTITY_POOL_ARN>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:GetItem",
-                "dynamodb:PutItem",
-                "dynamodb:Scan",
-                "dynamodb:UpdateItem"
-            ],
-            "Resource": [
-                "<DYNAMODB_PETS_TABLE_ARN>",
-                "<DYNAMODB_USERS_TABLE_ARN>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "logs:*"
-            ],
-            "Resource": [
-                "*"
-            ]
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "lambda.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
         }
-    ]
-}
-```
+      ]
+    }
+    ```
+
+    Policy for the AWS Lambda execution role:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "cognito-identity:GetOpenIdTokenForDeveloperIdentity"
+                ],
+                "Resource": [
+                    "<COGNITO_IDENTITY_POOL_ARN>"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:Scan",
+                    "dynamodb:UpdateItem"
+                ],
+                "Resource": [
+                    "<DYNAMODB_PETS_TABLE_ARN>",
+                    "<DYNAMODB_USERS_TABLE_ARN>"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "logs:*"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
+    ```
  
 * Open the AWS Lambda console and create a new function. Skip the blueprint selection page and go straight to the *Configure Function* step. In this screen give your function a name and select *Java 8* as runtime. AWS Lambda will ask you to upload a ZIP file for your function. You can upload the **Jar** file created by the maven process directly.
 * As a Handler for your function enter `com.amazonaws.apigatewaydemo.RequestRouter::lambdaHandler`.
@@ -92,68 +90,65 @@ The application needs to be modified to reflect the resource names created above
 	![Lambda Create Function Screenshot](src/main/resources/doc_images/lambda_create_function.png)
 * Now that the Lambda function is ready we can setup the API structure in Amazon API Gateway. To easily create the entire API we are going to use the Swagger format and import this into Amazon API Gateway.
 * Open the Swagger definition in the `src/main/resources/Swagger.yaml` file. Search the file for `x-amazon-apigateway-integration`. This tag defines the integration points between API Gateway and the backend, our Lambda function. Make sure that the `uri` for the Lambda function is correct, it should look like this:
-```
-arn:aws:apigateway:<YOUR REGION>:lambda:path/2015-03-31/functions/<YOUR LAMBDA FUNCTION ARN>/invocations
-```
+    ```
+    arn:aws:apigateway:<YOUR REGION>:lambda:path/2015-03-31/functions/<YOUR LAMBDA FUNCTION ARN>/invocations
+    ```
 * You can specify the role ARN in the `credentials` field of the Swagger file, next to the `uri` field. The `/pets` methods use a special role: `arn:aws:iam::*:user/*`. This tells API Gateway to invoke the Lambda function using the caller credentials. For the `/users` and `/login` (the first 2 paths in the file) you will also have to specify the invocation role API Gateway should use to call the Lambda function. You can create a new invocation role for the `/users` and `/login` methods from the Identity and Access Management (IAM) console with the following policies:
 
-   Trust Policy for the AWS Lambda invocation role:
-
-   ```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+    Trust Policy for the AWS Lambda invocation role:
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "apigateway.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-   Policy for the AWS Lambda invocation role:
-
-   ```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
+      "Version": "2012-10-17",
+      "Statement": [
         {
-            "Effect": "Allow",
-            "Action": [
-                "lambda:InvokeFunction"
-            ],
-            "Resource": [
-                "<LAMBDA_ARN>"
-            ]
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "apigateway.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
         }
-    ]
-}
-```
+      ]
+    }
+    ```
+
+    Policy for the AWS Lambda invocation role:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "lambda:InvokeFunction"
+                ],
+                "Resource": [
+                    "<LAMBDA_ARN>"
+                ]
+            }
+        ]
+    }
+    ```
 
 * Copy the **Role ARN** from the Role Summary page, and paste it in the `credentials` field of the `/users` and `/login` methods of the Swagger file.
 * Now that we have generated all resources for our API and we have all the ARNs, we should also modify the access policy of the Cognito Identity Pool to grant access to the Amazon API Gateway for authenticated users.
 * In the IAM console navigate to the roles list and open the authenticated role of your Cognito Identity Pool - the role is likely to be called **Cognito_"IdentityPoolName"Auth_Role**
 * Change the policy to:
-
-   ```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "execute-api:Invoke"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
-```
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "execute-api:Invoke"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
+    ```
 
 * Once you have modified and saved the Swagger file to call the correct Lambda function and use your roles [create a new API in Amazon API Gateway](https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/create) with the **Import from Swagger** feature.
 * You should now be able to deploy and test your **API Gateway Secure Pet Store** API with Amazon API Gateway
