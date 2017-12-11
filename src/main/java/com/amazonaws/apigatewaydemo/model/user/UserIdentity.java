@@ -13,7 +13,7 @@
 package com.amazonaws.apigatewaydemo.model.user;
 
 /**
- * The user identity bean - this is used by the credentials provider to store a unique identity id (for examaple a Cognito id)
+ * The user identity bean - this is used by the credentials provider to store a unique identity id (for example a Cognito id)
  * and an OpenID token for the user. The OpenID token can be exchanged for temporary AWS credentials.
  */
 public class UserIdentity {

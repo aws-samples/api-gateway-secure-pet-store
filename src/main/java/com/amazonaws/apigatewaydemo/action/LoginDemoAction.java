@@ -75,7 +75,7 @@ public class LoginDemoAction extends AbstractDemoAction {
                 throw new BadRequestException(ExceptionMessages.EX_INVALID_INPUT);
             }
         } catch (final NoSuchAlgorithmException e) {
-            logger.log("No algrithm found for password encryption\n" + e.getMessage());
+            logger.log("No algorithm found for password encryption\n" + e.getMessage());
             throw new InternalErrorException(ExceptionMessages.EX_PWD_SALT);
         } catch (final InvalidKeySpecException e) {
             logger.log("No KeySpec found for password encryption\n" + e.getMessage());

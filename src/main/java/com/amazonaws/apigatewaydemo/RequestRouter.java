@@ -58,7 +58,7 @@ public class RequestRouter {
         }
 
         if (inputObj == null || inputObj.get("action") == null || inputObj.get("action").getAsString().trim().equals("")) {
-            logger.log("Invald inputObj, could not find action parameter");
+            logger.log("Invalid inputObj, could not find action parameter");
             throw new BadRequestException("Could not find action value in request");
         }
 
