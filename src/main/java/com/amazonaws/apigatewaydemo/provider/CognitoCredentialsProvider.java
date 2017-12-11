@@ -50,7 +50,7 @@ public class CognitoCredentialsProvider implements CredentialsProvider {
     }
 
     /**
-     * Retreives a set of AWS temporary credentials from Amazon Cognito using Developer Authenticated Identities.
+     * Retrieves a set of AWS temporary credentials from Amazon Cognito using Developer Authenticated Identities.
      *
      * @param user The end user object. The identity property in the User object needs to be populated with a valid
      *             identityId and openID Token
